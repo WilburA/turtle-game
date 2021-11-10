@@ -21,7 +21,9 @@ color_list=["red","blue","green","grey","yellow","purple","orange","silver"]
 t_2.hideturtle()
 t_3.hideturtle()
 t_3.penup()
-
+t_4=turtle.Turtle()
+t_4.penup()
+t_4.hideturtle()
 
 
 color_number=0
@@ -74,10 +76,15 @@ ai_pos=[" "," "]
 pos=1
 freeze_counter=0
 death=False
+t_4.goto(190,190)
+num=10
 while True:
-  font_type=("Arial",5)
-  # t_2.write('ai:'+str(ai_score)+'\n Turtle:'+str(score), font=font_type, align='centre')
-  t_2.hideturtle()
+  if number_of_turtles==num:
+    num=num-1
+    t_4.clear()
+    font_type=("Arial",10)
+    t_4.write('ai:'+str(ai_score)+'\nTurtle:'+str(score-1), font=font_type, align='center')
+    t_4.hideturtle()
   if freeze_counter<score:
     if freeze=="a":
         counter=counter+1
@@ -250,6 +257,7 @@ while True:
 t.hideturtle()
 ai.hideturtle()
 print("you win")
+t_4.clear()
 for hi in range(0,8):
  window.bgcolor(color_list[hi])
  time.sleep(0.2)
