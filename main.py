@@ -21,7 +21,7 @@ color_list=["red","blue","green","grey","yellow","purple","orange","silver"]
 t_2.hideturtle()
 t_3.hideturtle()
 t_3.penup()
-t_4=turtle.Turtle()
+
 
 
 color_number=0
@@ -53,7 +53,8 @@ number_of_turtles=10
 ai_num=""
 ai_position=""
 counter=0
-
+ai.color("red")
+t.color("yellow")
 
 
 for number in range(number_of_turtles):
@@ -75,8 +76,8 @@ freeze_counter=0
 death=False
 while True:
   font_type=("Arial",5)
-  t_2. write('ai:'+str(ai_score)+'\n Turtle:'+str(score), font=font_type, align='centre')
-  t_2. hideturtle()
+  # t_2.write('ai:'+str(ai_score)+'\n Turtle:'+str(score), font=font_type, align='centre')
+  t_2.hideturtle()
   if freeze_counter<score:
     if freeze=="a":
         counter=counter+1
@@ -86,7 +87,7 @@ while True:
       ai.color("blue")
       freeze="a"
       if counter>200:
-        ai.color("black")
+        ai.color("red")
         pos=pos+1
         ai_speed=0.6+speed/2
         freeze=""
@@ -208,9 +209,9 @@ while True:
     my_list_of_turtles[random.randint(0,number_of_turtles-1)].left(90)
    if rand==4:
     my_list_of_turtles[random.randint(0,number_of_turtles-1)].right(90)
-   if  middle.distance(my_list_of_turtles[i])>300:
+   if  middle.distance(my_list_of_turtles[i])>250:
      my_list_of_turtles[i].hideturtle()
-     my_list_of_turtles[i].goto(random.randint(-300,300),random.randint(-300,300))
+     my_list_of_turtles[i].goto(random.randint(-250,250),random.randint(-250,250))
      my_list_of_turtles[i].showturtle()
    if my_list_of_turtles[i].distance(t)<15:
      lives_2=lives_2+1
@@ -219,8 +220,6 @@ while True:
       my_list_of_turtles[i].color(color_list[color_number-1])
       window.update()
       time.sleep(0.05)
-     ai_speed=ai_speed+0.02
-     speed=speed+0.02
      score=score+1
      print("score="+str(score-1)) 
      color_number=0
@@ -234,7 +233,6 @@ while True:
       my_list_of_turtles[i].color(color_list[color_number-1])
       window.update()
       time.sleep(0.05)
-     ai_speed=ai_speed+0.02
      color_number=0
      ai_score=ai_score+1
      my_list_of_turtles[i].hideturtle()
@@ -257,16 +255,16 @@ for hi in range(0,8):
  time.sleep(0.2)
  window.update()
 style = ('Arial', 30)
-if ai_score< score-1:
-  t_2. write('You Win!\n AI:'+str(ai_score)+'\n Turtle:'+str(score), font=style, align='center')
+if death==False and ai_score< score-1:
+  t_2. write('You Win!\n AI:'+str(ai_score)+'\n Turtle:'+str(score-1), font=style, align='center')
   t_2. hideturtle()
 elif ai_score> score-1 or death==True:
   style = ('Arial', 30, 'italic')
-  t_2. write('You Lose!\n AI:'+str(ai_score)+'\nTurtle:'+str(score), font=style, align='center')
+  t_2. write('You Lose!\n AI:'+str(ai_score)+'\nTurtle:'+str(score-1), font=style, align='center')
   t_2. hideturtle()
 else:
   style = ('Arial', 30, 'italic')
-  t_2. write('You Draw!\n AI:'+str(ai_score)+'\n Turtle:'+str(score), font=style, align='center')
+  t_2. write('You Draw!\n AI:'+str(ai_score)+'\n Turtle:'+str(score-1), font=style, align='center')
   t_2. hideturtle()
 
 
